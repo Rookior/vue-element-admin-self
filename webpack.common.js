@@ -1,12 +1,21 @@
 const path = require('path');
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const webpack = require('webpack');
+
 module.exports = {
   entry: {
     app: './src/main.js',
+  },
+  resolve: {
+    // 路径别名
+    alias: {
+        '@': resolve('src')
+    }
   },
   module: {
     rules: [

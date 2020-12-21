@@ -6,12 +6,13 @@
 
 <script>
 export default {
-   name: 'app',
+   name: 'app'
 }
 </script>
 
 <style lang="scss">
    @import 'assets/css/reset';
+    @import 'assets/css/common';
    #app{
        font-size: 15px;
    }
