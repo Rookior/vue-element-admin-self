@@ -78,18 +78,18 @@ Mock.mock(`${domain}/user/permission`, 'post', (req) => {
                     {
                         path: '/user',
                         name: 'user',
-                        meta: {
-                            title: '普通用户权限页面'
-                        },
+
+                        title: '普通用户权限页面',
+
                         component: 'User'
                     },
                     {
                         // 将404通配放在最后，否则前面匹配跳到404，就无法向后匹配准确路由
                         path: '/*',
                         name: 'page404',
-                        meta: {
-                            title: '404'
-                        },
+
+                        title: '404',
+
                         component: 'page404'
                     }
                 ],

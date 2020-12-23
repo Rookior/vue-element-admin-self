@@ -1,19 +1,19 @@
 export const Home = {
     path: '/',
     name: 'home',
-    meta: {
-        title: '主页'
-    },
-    component: () => import('../views/Home.vue')
+    // meta: {
+    title: '主页',
+    // },
+    component: 'Home'
 };
 
 export const login = {
     path: '/login',
     name: 'login',
-    meta: {
-        title: '登录'
-    },
-    component: () => import('../views/login/Login.vue')
+    // meta: {
+    title: '登录',
+    // },
+    component: 'login/Login'
 };
 
 

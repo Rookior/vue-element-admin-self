@@ -1,10 +1,13 @@
 import { login, getInfo, getPermission, testToken } from '@/api/user'
 
+import { constantRoutes, componentRoute } from '@/router'
+
 const user = {
   state: {
     token: '',
     roles: [],
-    accessRoutes: []  //动态路由
+    accessRoutes: [],  //动态路由
+    routes: []          //全部路由
   },
   mutations: {
     SET_TOKEN (state, payload) {
@@ -15,6 +18,7 @@ const user = {
     },
     SET_accessRoutes: (state, accessRoutes) => {
       state.accessRoutes = accessRoutes
+      state.routes = constantRoutes.concat(accessRoutes)
     }
   },
   actions: {
@@ -48,30 +52,17 @@ const user = {
           //   {
           //       path: '/user',
           //       name: 'user',
-          //       meta: {
-          //           title: '权限页面'
-          //       },
+
+          //           title: '权限页面',
+
           //       component: 'User'
           //   }
           // ]
           const data = response.data.accessRoutes
           commit('SET_accessRoutes', data)
+
           //处理数据
-
-          let accessRoutes = []
-
-          data.forEach(element => {
-            let route = {
-              name: element.name,//路由名称
-              path: element.path,//路由路径
-
-              meta: {
-                "title": element.title,//路由页面标题     
-              },
-              component: () => import('@/views/' + element.component + '.vue')//路由组件
-            }
-            accessRoutes.push(route)
-          });
+          const accessRoutes = componentRoute(data)
 
           // 返回路由数据
           resolve(accessRoutes)
