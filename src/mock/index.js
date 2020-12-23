@@ -50,13 +50,35 @@ Mock.mock(`${domain}/user/permission`, 'post', (req) => {
             code,
             data: {
                 accessRoutes: [
+                    
                     {
                         path: '/admin',
                         name: 'admin',
 
                         title: '管理员权限页面',
 
-                        component: 'Admin'
+                        component: 'Admin',
+                        children: [
+                            {
+                                // 不管路径是不是admin开头，对应的组件内容都是渲染在父组件的Admin的<router-view> 中
+                                path: '/admin/profile',
+                                name:'profile',
+                               
+                                title: '关于profile',
+                               
+                                component: 'home/AboutProfile',
+                                children: [
+                                    {
+                                       
+                                        path: '/admin/profile/three',
+                                        name:'three',
+                                       
+                                        title: '关于three',
+                                       
+                                        component: 'home/three'
+                                }]
+                            }
+                            ]
                     }, {
                         // 将404通配放在最后，否则前面匹配跳到404，就无法向后匹配准确路由
                         path: '/*',

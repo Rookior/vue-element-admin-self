@@ -20,6 +20,11 @@ export function componentRoute (res) {
         "title": element.title,//路由页面标题     
       },
       component: () => import('@/views/' + element.component + '.vue')//路由组件
+     
+    }
+    if(element.children){
+      var children = componentRoute(element.children)
+      route.children = children
     }
     accessRoutes.push(route)
   });

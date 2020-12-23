@@ -4,7 +4,19 @@ export const Home = {
     // meta: {
     title: '主页',
     // },
-    component: 'Home'
+    component: 'Home',
+    children:[
+        {
+            // 当 /home/posts 匹配成功
+            // AboutPosts 会被渲染在 父组件 的 <router-view> 中
+            path: '/home/posts',
+            name:'posts',
+           
+            title: '关于posts',
+            component: 'home/AboutPosts'
+        
+        }
+    ]
 };
 
 export const login = {

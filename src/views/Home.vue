@@ -6,6 +6,7 @@
       ><span class="font-DIN">00:00:00</span>
     </p>
     <button @click="test">测试token</button>
+    <router-view></router-view>
   </div>
 </template>
 
