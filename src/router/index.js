@@ -6,8 +6,7 @@ Vue.use(VueRouter);
 
 export const constantRoutes = routes
 
-
-
+// 也可以通过定义完整默认路由与权限路由（包含component），通过角色参数获得的用户权限路由，与完整权限路由，进行filter筛选，生成最终的权限路由
 
 export function componentRoute (res) {
   let accessRoutes = []
