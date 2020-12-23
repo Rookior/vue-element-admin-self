@@ -19,18 +19,3 @@ h1, h2, h3, h4, h5, h6 { font-size:100%; }
 :focus { outline:0; }
 hr { border:none; height:1px; *color:#fff;}
 img { -ms-interpolation-mode:bicubic; border:0; }
-/* 字体 */
-@font-face {
-    font-family: "DIN-Medium";
-    src: url('assets/fonts/DIN-Medium.otf');
-}
-@font-face {
-    font-family: "quartz-regular";
-    src: url('assets/fonts/quartz-regular.ttf');
-}
-.font-DIN{
-    font-family: "DIN-Medium";
-}
-.font-qua{
-    font-family: "quartz-regular";
-}

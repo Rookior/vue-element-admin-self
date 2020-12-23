@@ -14,7 +14,7 @@ module.exports = {
   resolve: {
     // 路径别名
     alias: {
-        '@': resolve('src')
+      '@': resolve('src')
     }
   },
   module: {
@@ -90,7 +90,7 @@ module.exports = {
       title: 'webpack基础配置',
       template: './index.html',  //读取模板的入口文件
     }),
-    new webpack.NamedModulesPlugin(),
+    // new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin()
   ],

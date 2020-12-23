@@ -1,12 +1,12 @@
 import axios from 'axios'
 import store from '@/store'
 import { Message } from 'element-ui'
-if(process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   // 开发环境
-  var baseURL = "http://mockjs.com/api";  
-} else if(process.env.NODE_ENV === 'production') {
+  var baseURL = "http://mockjs.com/api";
+} else if (process.env.NODE_ENV === 'production') {
   // 生产环境
-  var baseURL = "http://www.baidu.com";  
+  var baseURL = "http://www.baidu.com";
 }
 
 const service = axios.create({
