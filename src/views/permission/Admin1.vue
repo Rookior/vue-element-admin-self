@@ -1,8 +1,7 @@
 <template>
   <div>
-    <p>三级路由</p>
-
-    
+    <p>Welcome admin111</p>
+    <router-view></router-view>
   </div>
 </template>
 

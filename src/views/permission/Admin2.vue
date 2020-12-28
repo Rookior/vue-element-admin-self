@@ -1,8 +1,7 @@
 <template>
   <div>
-    <p>二级页面1</p>
-
-     <router-view></router-view>
+    <p>Welcome admin222</p>
+    <router-view></router-view>
   </div>
 </template>
 

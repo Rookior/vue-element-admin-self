@@ -6,7 +6,7 @@ const Random = Mock.Random; // 获取random对象，随机生成各种数据，�
 const domain = 'http://mockjs.com/api' // 定义默认域名，随便写
 const code = 200 // 返回的状态码
 
-// 定义请求链接，类型，还有返回数据
+// 登录
 Mock.mock(`${domain}/login/user`, 'post', (req) => {
     let requestData = JSON.parse(req.body)
     return {
@@ -17,7 +17,7 @@ Mock.mock(`${domain}/login/user`, 'post', (req) => {
         }
     }
 });
-
+// 获取角色
 Mock.mock(`${domain}/user/getInfo`, 'post', (req) => {
     var request = JSON.parse(req.body)
     if (request.userName === 'admin') {
@@ -40,7 +40,7 @@ Mock.mock(`${domain}/user/getInfo`, 'post', (req) => {
 
 
 });
-
+// 根据角色获取路由
 Mock.mock(`${domain}/user/permission`, 'post', (req) => {
 
     var request = JSON.parse(req.body)
@@ -52,41 +52,47 @@ Mock.mock(`${domain}/user/permission`, 'post', (req) => {
                 accessRoutes: [
                     
                     {
-                        path: '/admin',
+                        path: '/admin',                      
                         name: 'admin',
-
-                        title: '管理员权限页面',
-
-                        component: 'Admin',
-                        children: [
-                            {
-                                // 不管路径是不是admin开头，对应的组件内容都是渲染在父组件的Admin的<router-view> 中
-                                path: '/admin/profile',
-                                name:'profile',
-                               
-                                title: '关于profile',
-                               
-                                component: 'home/AboutProfile',
-                                children: [
-                                    {
-                                       
-                                        path: '/admin/profile/three',
-                                        name:'three',
-                                       
-                                        title: '关于three',
-                                       
-                                        component: 'home/three'
-                                }]
-                            }
+                        title: '管理员',                     
+                        component: 'layout/index',
+                        redirect: '/admin/admin1',
+                          children:[
+                                {
+                                   
+                                    path: '/admin/admin1',
+                                    name:'admin1',          
+                                    title: '管理员权限页面1',
+                                    component: 'permission/Admin1'
+                                
+                                },
+                                {
+                                    path: '/admin/admin2',
+                                    name:'admin2',          
+                                    title: '管理员权限页面2',
+                                    component: 'permission/Admin2'
+                                }
                             ]
+
                     }, {
                         // 将404通配放在最后，否则前面匹配跳到404，就无法向后匹配准确路由
                         path: '/*',
                         name: 'page404',
-
                         title: '404',
-
-                        component: 'page404'
+                        hidden: true,
+                        component: 'layout/index',
+                        redirect: '/page404',
+                        children:[
+                            {
+                               
+                                path: '/page404',
+                                name:'page404',          
+                                title: '页面不存在',
+                                component: 'page404'
+                            
+                            }                           
+                        ]
+                        
                     }
                 ],
                 message: '获取权限成功'
@@ -98,21 +104,42 @@ Mock.mock(`${domain}/user/permission`, 'post', (req) => {
             data: {
                 accessRoutes: [
                     {
-                        path: '/user',
+                        path: '/user',                      
                         name: 'user',
+                        title: '用户',                     
+                        component: 'layout/index',
+                        redirect: '/user/index',
+                          children:[
+                                {
+                                   
+                                    path: '/user/index',
+                                    name:'userIndex',          
+                                    title: '用户权限页面1',
+                                    component: 'permission/User'
+                                
+                                }
+                            ]
 
-                        title: '普通用户权限页面',
-
-                        component: 'User'
                     },
                     {
                         // 将404通配放在最后，否则前面匹配跳到404，就无法向后匹配准确路由
                         path: '/*',
                         name: 'page404',
-
                         title: '404',
-
-                        component: 'page404'
+                        hidden: true,
+                        component: 'layout/index',
+                        redirect: '/page404',
+                        children:[
+                            {
+                               
+                                path: '/page404',
+                                name:'page404',          
+                                title: '页面不存在',
+                                component: 'page404'
+                            
+                            }                           
+                        ]
+                        
                     }
                 ],
                 message: '获取权限成功'

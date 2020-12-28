@@ -17,8 +17,10 @@ const user = {
       state.roles = roles
     },
     SET_accessRoutes: (state, accessRoutes) => {
-      state.accessRoutes = accessRoutes
-      state.routes = constantRoutes.concat(accessRoutes)
+      state.accessRoutes = accessRoutes  
+        //过滤非菜单页面  
+      const routes = constantRoutes.concat(accessRoutes).filter(ele => ele.hidden !== true)   
+      state.routes = routes
     }
   },
   actions: {
@@ -71,17 +73,6 @@ const user = {
           reject(error)
         });
       });
-    },
-    test () {
-      return new Promise((resolve, reject) => {
-        testToken().then(response => {
-
-          resolve()
-        }).catch(error => {
-          reject(error)
-        });
-      });
-
     }
   }
 };

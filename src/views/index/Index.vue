@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p>二级页面2</p>
-    
+    <p>Welcome home</p>
   </div>
 </template>
 

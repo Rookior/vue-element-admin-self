@@ -15,7 +15,7 @@ export function componentRoute (res) {
     let route = {
       name: element.name,//路由名称
       path: element.path,//路由路径
-
+      redirect: element.redirect ? element.redirect : null,
       meta: {
         "title": element.title,//路由页面标题     
       },

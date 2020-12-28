@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-
+// 登录
 export function login (data) {
   return request({
     url: '/login/user',
@@ -7,7 +7,7 @@ export function login (data) {
     data
   })
 }
-
+//获取角色信息
 export function getInfo (data) {
   return request({
     url: '/user/getInfo',
@@ -15,20 +15,12 @@ export function getInfo (data) {
     data
   })
 }
-
+//根据角色获取路由
 export function getPermission (data) {
   return request({
     url: '/user/permission',
     method: 'post',
     data
-  })
-}
-
-
-export function testToken () {
-  return request({
-    url: '/login/test',
-    method: 'post'
   })
 }
 
