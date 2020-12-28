@@ -39,17 +39,23 @@
 
 export default {
   name: 'MenuItem',
-  computed: {
-    routes () {
-      return this.$store.getters.routes
+  props: {
+    routes: {
+      type: Array,
+      required: true
     }
   },
+  // computed: {
+  //   routes () {
+  //     return this.$store.getters.routes
+  //   }
+  // },
   methods: {
     handleOpen (key, keyPath) {
-      console.log(key, keyPath);
+      this.$emit('handleOpen',[key,keyPath]);
     },
     handleClose (key, keyPath) {
-      console.log(key, keyPath);
+      this.$emit('handleClose',[key,keyPath]);
     }
   }
 }

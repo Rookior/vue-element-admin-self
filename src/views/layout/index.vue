@@ -1,14 +1,13 @@
 <template>
-  <el-row>
-    <!-- 页面菜单 -->
-    <el-col :span="4">
-      <menu-item></menu-item>
-    </el-col>
-    <!-- 页面主体 -->
-    <el-col :span="20">
-      <router-view></router-view>
-    </el-col>
-  </el-row>
+  <div class="flex">
+      <div class="w-left">
+          <menu-item :routes=routes  @handleOpen="handleOpen" @handleClose="handleClose"></menu-item>
+      </div>
+      <div class="w-right">
+        <router-view></router-view>
+      </div>
+  </div>
+ 
 </template>
 
 <script>
@@ -37,3 +36,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+    .flex{
+      display: flex;
+      .w-left{
+        width: 200px;
+      }
+      .w-right{
+        width: calc(100% - 200px);
+      }
+    }
+</style>
