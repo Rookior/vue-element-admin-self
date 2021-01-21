@@ -2,7 +2,7 @@
   <el-row class="tac">
         <el-col :span="24">
           <el-menu
-            default-active="/"
+            :default-active="$route.path"
             class="el-menu-vertical-demo"
             router
             @open="handleOpen"
@@ -26,7 +26,7 @@
                 >
               </el-submenu>
               <!-- 只有一个子节点 -->
-              <el-menu-item :index="`${item.path}`" v-else>
+              <el-menu-item :index="`${item.redirect}`" v-else>
                 <span slot="title">{{ item.title }}</span>
               </el-menu-item>
             </div>
