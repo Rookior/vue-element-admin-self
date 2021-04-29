@@ -1,7 +1,6 @@
 # vue-element-admin
 vue-element-admin官方实践
 
-测试
 
 #### vuex刷新数据不丢失
 main.js
