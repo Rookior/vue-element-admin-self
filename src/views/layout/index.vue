@@ -4,7 +4,11 @@
           <menu-item :routes=routes  @handleOpen="handleOpen" @handleClose="handleClose"></menu-item>
       </div>
       <div class="w-right">
-        <router-view></router-view>
+         layout里面的内容（页面右侧主体）被缓存：
+         <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+        
       </div>
   </div>
  
