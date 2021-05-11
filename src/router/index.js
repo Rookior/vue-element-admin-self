@@ -17,8 +17,10 @@ export function componentRoute (res) {
       path: element.path,//路由路径
       redirect: element.redirect ? element.redirect : null,
       meta: {
-        "title": element.title,//路由页面标题     
+        "title": element.title,//路由页面标题  
+         keepAlive: element.keepAlive ? true : false 
       },
+      hidden:element.hidden ? true : false,
       component: () => import('@/views/' + element.component + '.vue')//路由组件
      
     }
@@ -36,8 +38,18 @@ const routesList = componentRoute(routes)
 
 const RouterConfig = {
   // mode: 'history',
-  scrollBehavior: () => ({ x: 0, y: 0 }),
-  routes: routesList
+  // scrollBehavior: () => ({ x: 0, y: 0 }),
+  routes: routesList,
+  scrollBehavior: (to, from, savedPosition)=> {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return {
+        x: 0,
+        y: 0
+      }
+    }
+  }
 };
 
 

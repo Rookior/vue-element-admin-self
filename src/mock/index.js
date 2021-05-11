@@ -70,7 +70,15 @@ Mock.mock(`${domain}/user/permission`, 'post', (req) => {
                                     path: '/admin/admin2',
                                     name:'admin2',          
                                     title: '管理员权限页面2',
+                                    keepAlive:true,
                                     component: 'permission/Admin2'
+                                },
+                                {
+                                    path: '/admin/admindetail',
+                                    name:'admindetail',   
+                                    hidden: true,      
+                                    title: '管理员详情页',
+                                    component: 'permission/AdminDetail'
                                 }
                             ]
 

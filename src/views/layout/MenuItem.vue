@@ -22,8 +22,9 @@
                   :index="`${child.path}`"
                   :key="childIndex"
                   v-for="(child, childIndex) in item.children"
-                  >{{ child.title }}</el-menu-item
-                >
+                  >
+                      <span v-if="!child.hidden">{{ child.title }}</span>
+                </el-menu-item>
               </el-submenu>
               <!-- 只有一个子节点 -->
               <el-menu-item :index="`${item.redirect}`" v-else>

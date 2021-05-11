@@ -10,8 +10,10 @@
       >
       </el-option>
     </el-select>
-  
 
+     <input v-model="bb" />
+  
+   
   
     <router-view></router-view>
   </div>
@@ -72,10 +74,11 @@ export default {
         label: '北京烤鸭'
       }],
       value1: "选项1",
+      bb:222
     }
   },
   methods: {
-
+    
   },
    components: {
       

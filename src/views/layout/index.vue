@@ -4,10 +4,15 @@
           <menu-item :routes=routes  @handleOpen="handleOpen" @handleClose="handleClose"></menu-item>
       </div>
       <div class="w-right">
-         layout里面的内容（页面右侧主体）被缓存：
-         <keep-alive>
-          <router-view></router-view>
+         layout里面的内容（页面右侧主体）被缓存：（指定页面缓存）
+
+        <keep-alive>
+        <!-- 需要缓存的视图组件 --> 
+        <router-view v-if="$route.meta.keepAlive"></router-view>
         </keep-alive>
+          <!-- 不需要缓存的视图组件 -->
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
+        
         
       </div>
   </div>

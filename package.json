@@ -48,6 +48,7 @@
   "dependencies": {
     "axios": "^0.21.0",
     "element-ui": "^2.14.1",
+    "excellentexport": "^3.6.0",
     "loadsh": "0.0.4",
     "mockjs": "^1.1.0",
     "vue": "^2.6.12",
