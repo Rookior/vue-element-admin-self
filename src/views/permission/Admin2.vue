@@ -4,14 +4,21 @@
       <input v-model="aa" />
       <el-button type="primary"  @click="()=>{this.aa=Math.random()}" onclick="alert('修改aa')">修改</el-button>  
 
-       <el-button @click="toDetail" type="primary">跳转详情</el-button>  
+       <el-button @click="toDetail" type="primary">跳转详情</el-button> 
+        
+        <season-select v-on:season-select='seasonSelect'></season-select>
+       
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
+// 如果不指定后缀，则默认是那个文件夹下的index.vue
+   import SeasonSelect from "@/components/seasonSelect";
 export default {
+  components: {
+      SeasonSelect
+  },
   mounted () {
 
   },
@@ -51,10 +58,12 @@ export default {
                 "detailId": 'detailId111'
             }
         })
+    },
+    seasonSelect:function(data){
+      console.log(111,data)
     }
-  },
-  components: {
-
   }
+  
+  
 }
 </script>

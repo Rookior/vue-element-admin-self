@@ -13,6 +13,7 @@ module.exports = {
   },
   resolve: {
     // 路径别名
+    extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('src')
     }
