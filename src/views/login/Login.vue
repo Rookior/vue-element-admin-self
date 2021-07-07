@@ -20,7 +20,8 @@ export default {
 
     login () {
       this.$store.dispatch('LoginByUsername', { userName: this.userName, password: this.password }).then((res) => {
-        this.$router.push({ path: '/' }); //登录成功之后重定向到首页
+        this.$router.push(this.$route.query.redirect || '/'); //登录成功之后回到重定向前的页面 或者 首页
+        //this.$router.push({ path: '/' }); 
       }).catch(err => {
         console.log(err); //登录失败提示错误
       });
